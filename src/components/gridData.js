@@ -39,7 +39,8 @@ const useStyles = makeStyles((theme) => ({
 	basketWrapper: {
 		border: '1px solid #face26',
 		display: 'flex',
-		justifyContent: 'center'
+		justifyContent: 'center',
+		flexWrap: 'wrap'
 	},
 	basketItem: {
 		backgroundColor: 'white',
@@ -92,6 +93,7 @@ export const GridData = ({ tunes, config }) => {
 			});
 			return prev;
 		}, {});
+
 		return productToAdd.nutrients.every(nutrient => {
 			return nutrient.amount + (basketRuleValue[nutrient.id] || 0) <= rules[nutrient.id];
 		})

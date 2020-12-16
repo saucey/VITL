@@ -1,7 +1,10 @@
+const cors = require('cors');
 const express = require('express');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 const app = express();
 
+app.use(cors());
+app.options('*', cors());
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -10,7 +13,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-const PORT = 8080;
+const PORT = 8888;
 const HOST = "localhost";
 
 const PRODUCTS = "https://vitl-static-api.s3-eu-west-1.amazonaws.com/fe-test.json";
